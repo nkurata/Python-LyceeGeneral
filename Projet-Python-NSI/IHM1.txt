@@ -1,0 +1,66 @@
+from tkinter import *
+
+fen1 = Tk()
+c = Canvas(fen1, width=1000, height=1000)
+
+c.create_rectangle(0, 500, 1000, 1000, fill="green", outline = 'green')#herbe
+c.create_rectangle(0, 0, 1000, 500, fill="blue", outline = 'blue')#ciel
+
+def create_house ():
+    c.create_rectangle(300, 300, 700, 700, fill="red", outline = 'red')#base house
+    c.create_line(700, 300, 500, 100, 300, 300)#toit
+    c.create_rectangle(450, 170, 550, 270, fill="black", outline = 'black')#fen1 fermer
+    c.create_rectangle(350, 350, 450, 450, fill="black", outline = 'black')#fen2 fermer
+    c.create_rectangle(550, 500, 650, 700, fill="black", outline = 'black')#porte fermer
+
+def house_closed ():
+    c.create_rectangle(450, 170, 550, 270, fill="black", outline = 'black')#fen1 fermer
+    c.create_rectangle(350, 350, 450, 450, fill="black", outline = 'black')#fen2 fermer
+    c.create_rectangle(550, 500, 650, 700, fill="black", outline = 'black')#porte fermer
+
+def house_open ():
+    c.create_rectangle(450, 170, 550, 270, fill="grey", outline = 'grey')#fen1 ouverte
+    c.create_rectangle(350, 350, 450, 450, fill="brown", outline = 'brown')#fen2 ouverte
+    c.create_rectangle(550, 500, 650, 700, fill="brown", outline = 'brown')#porte ouverte
+
+def fen1_open ():
+    c.create_rectangle(450, 170, 550, 270, fill="grey", outline = 'grey')#fen1 ouverte
+
+def fen2_open ():
+    c.create_rectangle(350, 350, 450, 450, fill="brown", outline = 'brown')#fen2 ouverte
+
+def porte_open ():
+    c.create_rectangle(550, 500, 650, 700, fill="brown", outline = 'brown')#porte ouverte
+
+def fen1_closed ():
+    c.create_rectangle(450, 170, 550, 270, fill="black", outline = 'black')#fen1 fermer
+
+def fen2_closed ():
+    c.create_rectangle(350, 350, 450, 450, fill="black", outline = 'black')#fen2 fermer
+
+def porte_closed ():
+    c.create_rectangle(550, 500, 650, 700, fill="black", outline = 'black')#porte fermer
+
+
+bou1 = Button(fen1,text='CREER LA MAISON',command=create_house)# bouton pour creer la maison
+bou1.pack()
+bou2 = Button(fen1,text='OUVRIR TOUT',command=house_open)# bouton pour ouvrir tout
+bou2.pack()
+bou3 = Button(fen1,text='FERMER TOUT',command=house_closed)# bouton pour fermer tout
+bou3.pack()
+bou4 = Button(fen1,text='OUVRIR LA FENETRE DU TOIT',command=fen1_open)# bouton pour ouvrir la fenetre du toit
+bou4.pack()
+bou5 = Button(fen1,text='FERMER LA FENETRE DU TOIT',command=fen1_closed) # bouton pour fermer la fenetre du toit
+bou5.pack()
+bou6 = Button(fen1,text='OUVRIR LA FENETRE',command=fen2_open)# bouton pour ouvrir la fenetre
+bou6.pack()
+bou7 = Button(fen1,text='FERMER LA FENETRE',command=fen2_closed)# bouton pour fermer la fenetre
+bou7.pack()
+bou8 = Button(fen1,text='OUVRIR LA PORTE',command=porte_open)# bouton pour ouvrir la porte
+bou8.pack()
+bou9 = Button(fen1,text='FERMER LA PORTE',command=porte_closed)# bouton pour fermer la portr
+bou9.pack()
+
+
+c.pack()
+fen1.mainloop()
